@@ -1,3 +1,5 @@
+import { Moon, Sun } from 'lucide-react'
+import { useMemo, useState } from 'react'
 import './App.css'
 
 const siteName = import.meta.env.VITE_SITE_NAME || 'Your Site'
@@ -6,20 +8,35 @@ const siteMessage =
   'This site is currently in development. Check back soon!'
 const backgroundImage =
   import.meta.env.VITE_BACKGROUND_IMAGE || '/coming-soon-bg.svg'
-const siteLogo = import.meta.env.VITE_SITE_LOGO || ''
+const isThemeToggleEnabled =
+  import.meta.env.VITE_ENABLE_THEME_TOGGLE !== 'false'
 
 function App() {
+  const [isDarkMode, setIsDarkMode] = useState(false)
+
+  const pageStyle = useMemo(
+    () => ({
+      backgroundImage: `linear-gradient(${isDarkMode ? '135deg, rgba(2, 6, 23, 0.9), rgba(15, 23, 42, 0.85)' : '135deg, rgba(255,255,255,0.92), rgba(248,250,252,0.95)'}), url('${backgroundImage}')`,
+    }),
+    [backgroundImage, isDarkMode],
+  )
+
+  const contentClassName = isDarkMode ? 'coming-soon-content dark' : 'coming-soon-content light'
+
   return (
-    <main
-      className="coming-soon-page"
-      style={{
-        backgroundImage: `linear-gradient(135deg, rgba(6, 10, 24, 0.88), rgba(17, 24, 39, 0.72)), url('${backgroundImage}')`,
-      }}
-    >
-      <section className="coming-soon-content">
-        {siteLogo ? (
-          <img className="site-logo" src={siteLogo} alt={`${siteName} logo`} />
-        ) : null}
+    <main className="coming-soon-page" style={pageStyle}>
+      {isThemeToggleEnabled ? (
+        <button
+          type="button"
+          className={`theme-toggle ${isDarkMode ? 'dark' : 'light'}`}
+          onClick={() => setIsDarkMode((value) => !value)}
+          aria-label="Toggle light and dark mode"
+        >
+          {isDarkMode ? <Sun size={20} /> : <Moon size={20} />}
+        </button>
+      ) : null}
+
+      <section className={contentClassName}>
         <p className="eyebrow">Coming soon</p>
         <h1>{siteName}</h1>
         <p className="message">{siteMessage}</p>
