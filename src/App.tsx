@@ -2,7 +2,7 @@ import { Moon, Sun } from 'lucide-react'
 import { useMemo, useState } from 'react'
 import './App.css'
 
-const siteName = import.meta.env.VITE_SITE_NAME || 'Your Site'
+const siteName = import.meta.env.VITE_SITE_NAME || 'Data Collection Portal'
 const siteBadge = import.meta.env.VITE_SITE_BADGE || 'STAGING'
 const siteMessage =
   import.meta.env.VITE_SITE_MESSAGE ||
