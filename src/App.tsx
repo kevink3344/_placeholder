@@ -3,7 +3,7 @@ import { useMemo, useState } from 'react'
 import './App.css'
 
 const siteName = import.meta.env.VITE_SITE_NAME || 'Your Site'
-const siteBadge = import.meta.env.VITE_SITE_BADGE || ''
+const siteBadge = import.meta.env.VITE_SITE_BADGE || 'STAGING'
 const siteMessage =
   import.meta.env.VITE_SITE_MESSAGE ||
   'This site is currently in development. Check back soon!'
