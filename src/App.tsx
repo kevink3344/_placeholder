@@ -1,19 +1,37 @@
 import { Moon, Sun } from 'lucide-react'
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import './App.css'
 
-const siteName = import.meta.env.VITE_SITE_NAME || 'Data Collection Portal'
-const siteBadge = import.meta.env.VITE_SITE_BADGE || 'STAGING'
-const siteMessage =
-  import.meta.env.VITE_SITE_MESSAGE ||
-  'This site is currently in development. Check back soon!'
-const backgroundImage =
-  import.meta.env.VITE_BACKGROUND_IMAGE || '/coming-soon-bg.svg'
-const isThemeToggleEnabled =
-  import.meta.env.VITE_ENABLE_THEME_TOGGLE !== 'false'
+type SiteConfig = {
+  VITE_SITE_NAME: string
+  VITE_SITE_BADGE: string
+  VITE_SITE_MESSAGE: string
+  VITE_BACKGROUND_IMAGE: string
+  VITE_ENABLE_THEME_TOGGLE: string
+}
 
 function App() {
   const [isDarkMode, setIsDarkMode] = useState(false)
+  const [config, setConfig] = useState<SiteConfig>({
+    VITE_SITE_NAME: 'Data Collection Portal',
+    VITE_SITE_BADGE: 'STAGING',
+    VITE_SITE_MESSAGE: 'This site is currently in development. Check back soon!',
+    VITE_BACKGROUND_IMAGE: '/images/background.svg',
+    VITE_ENABLE_THEME_TOGGLE: 'true',
+  })
+
+  useEffect(() => {
+    fetch('/config')
+      .then((r) => r.json())
+      .then((data: SiteConfig) => setConfig(data))
+      .catch(() => {})
+  }, [])
+
+  const siteName = config.VITE_SITE_NAME
+  const siteBadge = config.VITE_SITE_BADGE
+  const siteMessage = config.VITE_SITE_MESSAGE
+  const backgroundImage = config.VITE_BACKGROUND_IMAGE
+  const isThemeToggleEnabled = config.VITE_ENABLE_THEME_TOGGLE !== 'false'
 
   const pageStyle = useMemo(
     () => ({

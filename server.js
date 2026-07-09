@@ -9,6 +9,17 @@ const __dirname = path.dirname(__filename)
 
 app.use(express.static(path.join(__dirname, 'dist')))
 
+app.get('/config', (_req, res) => {
+  res.json({
+    VITE_SITE_LOGO: process.env.VITE_SITE_LOGO ?? '/images/logo.svg',
+    VITE_SITE_NAME: process.env.VITE_SITE_NAME ?? 'Data Collection Portal',
+    VITE_SITE_BADGE: process.env.VITE_SITE_BADGE ?? 'STAGING',
+    VITE_SITE_MESSAGE: process.env.VITE_SITE_MESSAGE ?? 'This site is currently in development. Check back soon!',
+    VITE_BACKGROUND_IMAGE: process.env.VITE_BACKGROUND_IMAGE ?? '/images/background.svg',
+    VITE_ENABLE_THEME_TOGGLE: process.env.VITE_ENABLE_THEME_TOGGLE ?? 'true',
+  })
+})
+
 app.get('*', (_req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'))
 })

@@ -24,13 +24,6 @@ jobs:
           node-version: '22.x'
 
       - name: npm install, build, and test
-        env:
-          VITE_SITE_LOGO: ${{ vars.VITE_SITE_LOGO }}
-          VITE_SITE_NAME: ${{ vars.VITE_SITE_NAME }}
-          VITE_SITE_BADGE: ${{ vars.VITE_SITE_BADGE }}
-          VITE_SITE_MESSAGE: ${{ vars.VITE_SITE_MESSAGE }}
-          VITE_BACKGROUND_IMAGE: ${{ vars.VITE_BACKGROUND_IMAGE }}
-          VITE_ENABLE_THEME_TOGGLE: ${{ vars.VITE_ENABLE_THEME_TOGGLE }}
         run: |
           npm install
           npm run build --if-present
