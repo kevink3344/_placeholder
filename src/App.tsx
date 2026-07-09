@@ -3,6 +3,7 @@ import { useMemo, useState } from 'react'
 import './App.css'
 
 const siteName = import.meta.env.VITE_SITE_NAME || 'Your Site'
+const siteBadge = import.meta.env.VITE_SITE_BADGE || ''
 const siteMessage =
   import.meta.env.VITE_SITE_MESSAGE ||
   'This site is currently in development. Check back soon!'
@@ -38,7 +39,10 @@ function App() {
 
       <section className={contentClassName}>
         <p className="eyebrow">Coming soon</p>
-        <h1>{siteName}</h1>
+        <div className="title-row">
+          <h1>{siteName}</h1>
+          {siteBadge ? <span className="site-badge">{siteBadge}</span> : null}
+        </div>
         <p className="message">{siteMessage}</p>
       </section>
     </main>

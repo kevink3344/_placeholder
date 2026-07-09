@@ -65,10 +65,33 @@
   color: #e2e8f0;
 }
 
-h1 {
+.title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
   margin: 0 0 16px;
-  font-size: clamp(2.2rem, 5vw, 3.4rem);
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.65rem, 3.75vw, 2.55rem);
   line-height: 1.1;
+}
+
+.site-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: #f59e0b;
+  color: #1c1917;
+  white-space: nowrap;
+  align-self: center;
 }
 
 .message {
