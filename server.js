@@ -1,6 +1,7 @@
 import express from 'express'
 import path from 'path'
 import { fileURLToPath } from 'url'
+import { runMigration } from './scripts/migrate.js'
 
 const app = express()
 const port = process.env.PORT || 8080
@@ -24,6 +25,17 @@ app.get('*', (_req, res) => {
   res.sendFile(path.join(__dirname, 'dist', 'index.html'))
 })
 
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`)
-})
+// Run DB migration on startup (safe to re-run — drops and recreates schema)
+runMigration()
+  .then(() => {
+    app.listen(port, () => {
+      console.log(`Server listening on port ${port}`)
+    })
+  })
+  .catch((err) => {
+    console.error('Startup migration failed:', err.message)
+    console.warn('Starting server without completed migration')
+    app.listen(port, () => {
+      console.log(`Server listening on port ${port}`)
+    })
+  })
