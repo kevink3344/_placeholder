@@ -14,6 +14,7 @@ if (!AZURE_SQL_SERVER || !AZURE_SQL_DATABASE || !AZURE_SQL_USER || !AZURE_SQL_PA
 
 const config = {
   server: AZURE_SQL_SERVER,
+  port: parseInt(process.env.AZURE_SQL_PORT ?? '3342'),
   database: AZURE_SQL_DATABASE,
   user: AZURE_SQL_USER,
   password: AZURE_SQL_PASSWORD,
