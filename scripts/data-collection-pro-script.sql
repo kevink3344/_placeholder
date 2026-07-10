@@ -1350,6 +1350,8 @@ ALTER TABLE [dbo].[response_attachments]  WITH CHECK ADD CHECK  (([status]='dele
 GO
 
 GO
+EXEC sp_MSforeachtable 'ALTER TABLE ? NOCHECK CONSTRAINT ALL'
+GO
 -- ============================================================
 -- SEED DATA
 -- ============================================================
@@ -1927,3 +1929,6 @@ INSERT INTO [dbo].[gallery_assets] ([id],[organization_id],[name],[alt_text],[ta
 
 GO
 
+GO
+EXEC sp_MSforeachtable 'ALTER TABLE ? WITH CHECK CHECK CONSTRAINT ALL'
+GO
