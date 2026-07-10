@@ -1,0 +1,8 @@
+﻿login_message,"Choose an existing user profile to enter the data workspace. For this prototype version only, staff login is not required. A production version of this application will have Rapid ID authentication.&nbsp;<div><br></div><div><b>NOTE: All data and other information on this site is for demonstration purposes only.&nbsp;</b></div><div><br></div><div>Some features (such as Approvals) are currently being tested and may not be in a ""Phase I"" release of the application.</div>"
+login_subtitle,Enterprise Staff Support
+notification_reminder_days,-7
+notification_late_days,3
+login_message,"Choose an existing user profile to enter the data workspace. For this prototype version only, staff login is not required. A production version of this application will have Rapid ID authentication.&nbsp;<div><br></div><div><b>NOTE: All data and other information on this site is for demonstration purposes only.&nbsp;</b></div><div><br></div><div>Some features (such as Approvals) are currently being tested and may not be in a ""Phase I"" release of the application.</div>"
+login_subtitle,Enterprise Staff Support
+notification_reminder_days,-7
+notification_late_days,3

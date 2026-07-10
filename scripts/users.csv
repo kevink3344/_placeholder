@@ -1,0 +1,12 @@
+﻿1,Jon Rivera,jon@datacollectionpro.com,administrator,TSD,2026-05-09 12:25:11,1,NULL,0,NULL,NULL,NULL,NULL
+2,Sarah Chen,sarah@datacollectionpro.com,team_manager,TSD,2026-05-09 12:25:11,1,NULL,0,NULL,NULL,NULL,NULL
+3,Mike Torres,mike@datacollectionpro.com,user,TSD,2026-05-09 12:25:11,1,NULL,0,NULL,NULL,NULL,NULL
+4,Super Admin,superadmin@admin.local,super_admin,ASD,2026-05-27 01:22:38,2,NULL,0,NULL,NULL,NULL,NULL
+5,Amy Smith,asmith@gmail.com,administrator,ACA,2026-05-27 13:53:52,33,NULL,0,NULL,NULL,NULL,NULL
+6,Timothy Jacobs,tjacobs@gmail.com,reviewer,ADM,2026-05-27 20:13:13,2,NULL,0,NULL,NULL,NULL,NULL
+7,Tom Jones,tjones@gmail.com,reviewer,ACC,2026-05-28 14:44:58,33,NULL,0,NULL,NULL,NULL,NULL
+8,Alicia Young,ayoung@wcpss.net,administrator,GRT,2026-05-30 13:03:54,34,NULL,0,NULL,NULL,NULL,NULL
+9,Patrick Jones,pjones@yahoo.com,team_manager,ADD,2026-06-02 12:45:39,2,NULL,0,NULL,NULL,NULL,NULL
+10,Brittany Young,byoung@gmail.com,reviewer,GRT,2026-06-05 13:04:36,34,NULL,0,NULL,NULL,NULL,NULL
+11,John Smith,jsmith@gmail.com,administrator,TST,2026-06-09 17:26:38,340,NULL,0,NULL,NULL,NULL,NULL
+12,Mary Anderson,manderson@gmail.com,reviewer,TST,2026-06-11 19:52:38,340,NULL,0,NULL,NULL,NULL,NULL
