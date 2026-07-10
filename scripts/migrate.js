@@ -5,16 +5,16 @@ import path from 'path'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
-const { AZURE_SQL_SERVER, AZURE_DATABASE, AZURE_SQL_USER, AZURE_SQL_PASSWORD } = process.env
+const { AZURE_SQL_SERVER, AZURE_SQL_DATABASE, AZURE_SQL_USER, AZURE_SQL_PASSWORD } = process.env
 
-if (!AZURE_SQL_SERVER || !AZURE_DATABASE || !AZURE_SQL_USER || !AZURE_SQL_PASSWORD) {
-  console.error('Missing required environment variables: AZURE_SQL_SERVER, AZURE_DATABASE, AZURE_SQL_USER, AZURE_SQL_PASSWORD')
+if (!AZURE_SQL_SERVER || !AZURE_SQL_DATABASE || !AZURE_SQL_USER || !AZURE_SQL_PASSWORD) {
+  console.error('Missing required environment variables: AZURE_SQL_SERVER, AZURE_SQL_DATABASE, AZURE_SQL_USER, AZURE_SQL_PASSWORD')
   process.exit(1)
 }
 
 const config = {
   server: AZURE_SQL_SERVER,
-  database: AZURE_DATABASE,
+  database: AZURE_SQL_DATABASE,
   user: AZURE_SQL_USER,
   password: AZURE_SQL_PASSWORD,
   options: {
@@ -32,7 +32,7 @@ const batches = sqlScript
   .map(b => b.trim())
   .filter(b => b.length > 0)
 
-console.log(`Connecting to ${AZURE_SQL_SERVER}/${AZURE_DATABASE}...`)
+console.log(`Connecting to ${AZURE_SQL_SERVER}/${AZURE_SQL_DATABASE}...`)
 
 let pool
 try {
