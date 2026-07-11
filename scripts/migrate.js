@@ -25,7 +25,7 @@ export async function runMigration() {
     },
   }
 
-  const scriptPath = path.join(__dirname, 'data-collection-pro-script.sql')
+  const scriptPath = path.join(__dirname, 'data-export-v1.sql')
   const sqlScript = readFileSync(scriptPath, 'utf8')
 
   const batches = sqlScript
